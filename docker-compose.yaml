@@ -5,6 +5,7 @@ services:
     image: ltreze/app:latest
     container_name: app_container
     restart: always
+    entrypoint: dockerize -wait tcp://mysql:3306 -timeout 10s npm start
     ports:
       - "3008:3008"
     volumes:
